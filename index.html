@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Pacientes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Cabeçalho do médico */
+        .medico {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .medico img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #4CAF50;
+        }
+
+        .medico-info h2 {
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .medico-info p {
+            margin: 5px 0 0;
+            color: #7f8c8d;
+        }
+
+        /* Formulário do paciente */
+        .paciente-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .paciente-form h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            height: 100px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+ 
+       <!-- Cabeçalho do Médico -->
+    <div class="medico">
+        <img src="imagens/Imagem do WhatsApp de 2025-03-24 à(s) 21.57.13_8fdfb077.jpg" alt="laudio">
+        <div class="medico-info">
+            <h2>Assistente Sócial. Cláudio Jerônimo dos Santos
+            </h2>
+            <p> Emergência psiquiátrica de Austin</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 class="text-center my-4">Cadastro de Pacientes</h1>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h2>Novo Paciente</h2>
+            </div>
+            <div class="card-body">
+                <form id="patientForm" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="name" class="form-label required">Nome Completo</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="motherName" class="form-label required">Nome da Mãe</label>
+                                <input type="text" class="form-control" id="motherName" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="birthDate" class="form-label required">Data de Nascimento</label>
+                                <input type="text" class="form-control" id="birthDate" placeholder="DD/MM/AAAA" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="entryTime" class="form-label required">Horário de Entrada</label>
+                                <input type="text" class="form-control" id="entryTime" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="exitTime" class="form-label">Horário de Saída</label>
+                                <input type="text" class="form-control" id="exitTime">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="exitDate" class="form-label">Data da Saída</label>
+                                <input type="text" class="form-control" id="exitDate" placeholder="DD/MM/AAAA">
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="address" class="form-label required">Endereço</label>
+                                <input type="text" class="form-control" id="address" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="complement" class="form-label">Complemento</label>
+                                <input type="text" class="form-control" id="complement">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="contacts" class="form-label required">Contatos</label>
+                                <textarea class="form-control" id="contacts" rows="2" required></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="category" class="form-label required">Categoria</label>
+                                <select class="form-select" id="category" required>
+                                    <option value="">Selecione uma categoria</option>
+                                    <option value="Consulta Rotineira">Consulta Rotineira</option>
+                                    <option value="Tratamento Especial">Tratamento Especial</option>
+                                    <option value="Consulta de indentificaçao">Consulta de indentificaçao</option>
+                                    <option value="Acompanhamento">Acompanhamento</option>
+                                    <option value="Relatório Social">Relatório Social</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="photo" class="form-label">Foto</label>
+                                <input type="file" class="form-control" id="photo" accept="image/*">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="notes" class="form-label">Observações</label>
+                                <textarea class="form-control" id="notes" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h2 class="mb-0">Pacientes Cadastrados</h2>
+                <div>
+                    <button id="removeSelected" class="btn btn-danger btn-sm me-2" disabled>
+                        <i class="fas fa-trash"></i> Remover Selecionados
+                    </button>
+                    <button id="exportExcel" class="btn btn-success btn-sm me-2">
+                        <i class="fas fa-file-excel"></i> Exportar Excel
+                    </button>
+                    <button id="exportPDF" class="btn btn-danger btn-sm">
+                        <i class="fas fa-file-pdf"></i> Exportar PDF
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row" id="patientsList">
+                    <!-- Os pacientes serão exibidos aqui -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
+</body>
+</html>

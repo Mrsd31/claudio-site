@@ -1,0 +1,118 @@
+body {
+    background-color: #f8f9fa;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.patient-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: 15px;
+}
+
+.patient-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.patient-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.patient-info {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.category-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Cores para categorias */
+.bg-consulta { background-color: #4CAF50; color: white; }
+.bg-tratamento { background-color: #2196F3; color: white; }
+.bg-cirurgia { background-color: #f44336; color: white; }
+.bg-acompanhamento { background-color: #FFC107; color: black; }
+.bg-info { background-color: #17a2b8; color: white; }
+
+/* Botões */
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+/* Formulário */
+.form-label.required:after {
+    content: " *";
+    color: red;
+}
+
+/* Checkboxes e botão de remover */
+.patient-checkbox {
+    transform: scale(1.3);
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+}
+
+.remove-btn {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.remove-btn i {
+    margin-right: 5px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .patient-photo {
+        height: 150px;
+    }
+    
+    .card-header .btn {
+        margin-top: 5px;
+        width: 100%;
+    }
+}
+.patient-info {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 15px;
+}
+
+.patient-info p {
+    color: #333;
+    margin-bottom: 8px;
+}
